@@ -1,4 +1,4 @@
-import LWSLogo from './assets/image.png';
+import LWSLogo from './assets/image1.png';
 
 const Header = () => {
   return (

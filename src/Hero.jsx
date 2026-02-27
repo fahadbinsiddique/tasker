@@ -24,7 +24,7 @@ const Hero = () => {
                 - Your Personal Productivity Ally for Seamless Goal Achievement
                 and Stress-Free Task Management.
               </p>
-            </div>
+            </div>  
           </div>
         </div>
       </section>

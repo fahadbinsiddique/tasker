@@ -32,7 +32,7 @@ const TaskBoard = () => {
       );
     }
 
-     handleCloseClick();
+    handleCloseClick();
   }
 
   function handleEditTask(task) {
@@ -40,9 +40,35 @@ const TaskBoard = () => {
     setTaskToUpdate(task);
   }
 
+  function handleDeleteTask(taskId) {
+    const tasksAfterDelete = tasks.filter((task) => task.id !== taskId);
+    setTasks(tasksAfterDelete);
+  }
+
   function handleCloseClick() {
     setShowAddModal(false);
-    setTaskToUpdate(null)
+    setTaskToUpdate(null);
+  }
+
+  function handleDeleteAll() {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete all tasks?",
+    );
+    if (confirmed) {
+      setTasks([]);
+    }
+  }
+
+  function handleFavorite(taskId) {
+    setTasks(
+      tasks.map((task) => {
+        if (task.id === taskId) {
+          return { ...task, isFavorite: !task.isFavorite };
+        } else {
+          return task;
+        }
+      }),
+    );
   }
 
   return (
@@ -61,9 +87,17 @@ const TaskBoard = () => {
           </div>
 
           <div className="rounded-xl border border-[rgba(206,206,206,0.12)] bg-[#1D212B] px-6 py-8 md:px-9 md:py-16">
-            <TaskAction onAddClick={() => setShowAddModal(true)} />
+            <TaskAction
+              onAddClick={() => setShowAddModal(true)}
+              onDeleteAllClick={handleDeleteAll}
+            />
             <div className="overflow-auto">
-              <TaskList tasks={tasks} onEdit={handleEditTask} />
+              <TaskList
+                tasks={tasks}
+                onEdit={handleEditTask}
+                onDelete={handleDeleteTask}
+                onFav={handleFavorite}
+              />
             </div>
           </div>
         </div>

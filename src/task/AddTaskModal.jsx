@@ -30,7 +30,16 @@ export default function AddTaskModal({ onSave, taskToUpdate, onCloseClick }) {
     e.preventDefault();
     onSave(task, isAdd);
   };
-
+  function onResetClick() {
+    setTask({
+      id: isAdd ? crypto.randomUUID() : taskToUpdate.id,
+      title: "",
+      description: "",
+      tags: [],
+      priority: "",
+      isFavorite: isAdd ? false : taskToUpdate.isFavorite,
+    });
+  }
   return (
     <>
       <div className="bg-black/70 h-full w-full z-10  fixed top-0 left-0"></div>
@@ -102,18 +111,24 @@ export default function AddTaskModal({ onSave, taskToUpdate, onCloseClick }) {
         <div className="mt-16 flex justify-between lg:mt-20">
           <button
             type="button"
-            className="rounded bg-red-600 px-4 py-2 text-white transition-all cursor-pointer hover:opacity-80"
+            className="rounded bg-red-800 px-4 py-2 text-white transition-all cursor-pointer hover:opacity-80"
             onClick={onCloseClick}
           >
             Close
           </button>
-
           <button
             type="submit"
             className="rounded bg-blue-600 px-4 py-2 text-white transition-all cursor-pointer hover:opacity-80"
             // onClick={() => onSave(task, isAdd)}
           >
             Save
+          </button>
+          <button
+            type="button"
+            className="rounded bg-gray-600 px-4 py-2 text-white transition-all cursor-pointer hover:opacity-80"
+            onClick={onResetClick}
+          >
+            Reset
           </button>
         </div>
       </form>

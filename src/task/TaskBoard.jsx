@@ -72,7 +72,7 @@ const TaskBoard = () => {
     );
   }
   function handleSearch(searchTerm) {
-    console.log(searchTerm);
+    
 
     const filtered = tasks.filter((task) =>
       task.title.toLowerCase().includes(searchTerm.toLowerCase()),

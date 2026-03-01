@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AddTaskModal from "./addTaskModal";
+import AddTaskModal from "./AddTaskModal";
 import NoTaskFound from "./NoTaskFound";
 import SearchTask from "./SearchTask";
 import TaskAction from "./TaskAction";
@@ -72,8 +72,6 @@ const TaskBoard = () => {
     );
   }
   function handleSearch(searchTerm) {
-    
-
     const filtered = tasks.filter((task) =>
       task.title.toLowerCase().includes(searchTerm.toLowerCase()),
     );

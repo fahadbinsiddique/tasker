@@ -1,7 +1,6 @@
 # Tasker
 
-A lightweight React + Vite application for managing tasks (to‑dos).
-This demo project showcases basic task operations including add, edit, delete, favorite and search, all handled entirely in browser state.
+A lightweight and efficient task tracker application built with a **Modular Component Architecture**. Implemented full **CRUD functionality** (Create, Read, Update, Delete) using React Hooks for state management. Features include advanced task filtering, a search system by title, and a "Favorite" marking system, all handled entirely in-browser for a fast, lag-free user experience.
 
 ---
 
